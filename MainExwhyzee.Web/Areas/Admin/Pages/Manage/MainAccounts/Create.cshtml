@@ -1,0 +1,98 @@
+﻿@page
+@model MainExwhyzee.Web.Areas.Admin.Pages.Manage.MainAccounts.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card card-default">
+    <div class="card-header">
+        <h3 class="card-title">ADD A NEW ACCOUNT </h3>
+
+
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AccountType.Name" class="control-label"></label>
+                <input asp-for="AccountType.Name" class="form-control" />
+                <span asp-validation-for="AccountType.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountType.Company" class="control-label"></label>
+                <input asp-for="AccountType.Company" class="form-control" />
+                <span asp-validation-for="AccountType.Company" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountType.Email" class="control-label"></label>
+                <input asp-for="AccountType.Email" class="form-control" />
+                <span asp-validation-for="AccountType.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountType.Cost" class="control-label"></label>
+                <input asp-for="AccountType.Cost" class="form-control" />
+                <span asp-validation-for="AccountType.Cost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountType.DateCreated" class="control-label"></label>
+                <input asp-for="AccountType.DateCreated" class="form-control" />
+                <span asp-validation-for="AccountType.DateCreated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountType.DateExpiring" class="control-label"></label>
+                <input asp-for="AccountType.DateExpiring" class="form-control" />
+                <span asp-validation-for="AccountType.DateExpiring" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountType.DateRenewed" class="control-label"></label>
+                <input asp-for="AccountType.DateRenewed" class="form-control" />
+                <span asp-validation-for="AccountType.DateRenewed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountType.Date" class="control-label"></label>
+                <input asp-for="AccountType.Date" class="form-control" />
+                <span asp-validation-for="AccountType.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountType.Description" class="control-label"></label>
+                <input asp-for="AccountType.Description" class="form-control" />
+                <span asp-validation-for="AccountType.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountType.Interval" class="control-label"></label>
+                <input asp-for="AccountType.Interval" class="form-control" />
+                <span asp-validation-for="AccountType.Interval" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountType.AccontStatus" class="control-label"></label>
+                <select asp-for="AccountType.AccontStatus" class="form-control"></select>
+                <span asp-validation-for="AccountType.AccontStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountType.TypeOfAccount" class="control-label"></label>
+                <select asp-for="AccountType.TypeOfAccount" class="form-control"></select>
+                <span asp-validation-for="AccountType.TypeOfAccount" class="text-danger"></span>
+            </div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-primary" />
+                        <a asp-page="./Index" class="btn bg-gradient-warning btn-sm" style="float:right;">Back</a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- /.row -->
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

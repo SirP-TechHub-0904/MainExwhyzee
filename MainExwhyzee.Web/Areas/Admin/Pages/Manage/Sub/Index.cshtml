@@ -1,0 +1,143 @@
+﻿@page
+@model MainExwhyzee.Web.Areas.Admin.Pages.Manage.Sub.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">SUB ACCOUNTS</h3>
+
+
+        <a asp-page="./Create" class="btn bg-gradient-warning btn-sm" style="float:right;">Add New</a>
+
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubAccount[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubAccount[0].Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubAccount[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubAccount[0].Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubAccount[0].DateCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubAccount[0].DateExpiring)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubAccount[0].DateRenewed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubAccount[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubAccount[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubAccount[0].Interval)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubAccount[0].AccontStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubAccount[0].TypeOfAccount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubAccount[0].AccountType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+                @{
+                    int sn = 0;
+                }
+    <tbody>
+@foreach (var item in Model.SubAccount) {
+                        <tr>
+                            <td>
+                                @{
+                                    sn++;
+                                }
+                                @sn
+                            </td>
+
+                            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateExpiring)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRenewed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Interval)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccontStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeOfAccount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountType.Company)
+            </td>
+
+                            <td>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-success">Action</button>
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-success dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
+                                        </button>
+                                        <div class="dropdown-menu" style="">
+
+                                            <a class="dropdown-item" asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                                            <a class="dropdown-item" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                                            <a class="dropdown-item" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

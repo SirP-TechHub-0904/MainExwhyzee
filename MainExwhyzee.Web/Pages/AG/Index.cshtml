@@ -1,0 +1,42 @@
+﻿@page
+@model MainExwhyzee.Web.Pages.AG.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>NAMES LIST</h1>
+
+<div class="table-responsive">
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Agsmis[0].Name)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Agsmis[0].Source)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Agsmis)
+        {
+            <tr>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.Id">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </a>
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Source)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,112 @@
+﻿@page
+@model MainExwhyzee.Web.Areas.Admin.Pages.Manage.Sub.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card card-default">
+    <div class="card-header">
+        <h3 class="card-title">DETAILS</h3>
+
+
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubAccount.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubAccount.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubAccount.Company)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubAccount.Company)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubAccount.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubAccount.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubAccount.Cost)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubAccount.Cost)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubAccount.DateCreated)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubAccount.DateCreated)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubAccount.DateExpiring)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubAccount.DateExpiring)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubAccount.DateRenewed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubAccount.DateRenewed)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubAccount.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubAccount.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubAccount.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubAccount.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubAccount.Interval)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubAccount.Interval)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubAccount.AccontStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubAccount.AccontStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubAccount.TypeOfAccount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubAccount.TypeOfAccount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubAccount.AccountType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubAccount.AccountType.Company)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.SubAccount?.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+   
+         </div>
+
+
+        <!-- /.row -->
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+    </div>
+</div>
