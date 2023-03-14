@@ -21,9 +21,24 @@ namespace MainExwhyzee.Web.Pages.AG
 
         public IList<Agsmis> Agsmis { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync(string? code)
         {
-            Agsmis = await _context.Agsmiss.ToListAsync();
+
+            string xcode = "54321";
+            if(code == null)
+            {
+                TempData["nocode"] = "nocode";
+                return Page();
+            }
+            if (code == xcode) {
+                TempData["access"] = "access";
+                Agsmis = await _context.Agsmiss.ToListAsync();
+                return Page();
+            }
+
+            TempData["noaccess"] = "noaccess";
+            TempData["nocode"] = "nocode";
+            return Page();
         }
     }
 }
