@@ -19,16 +19,16 @@ namespace MainExwhyzee.Web.Areas.Admin.Pages.Manage.MainAccounts
             _context = context;
         }
 
-      public AccountType AccountType { get; set; }
+      public WDAccount AccountType { get; set; }
 
         public async Task<IActionResult> OnGetAsync(long? id)
         {
-            if (id == null || _context.AccountTypes == null)
+            if (id == null || _context.WDAccounts == null)
             {
                 return NotFound();
             }
 
-            var accounttype = await _context.AccountTypes.FirstOrDefaultAsync(m => m.Id == id);
+            var accounttype = await _context.WDAccounts.FirstOrDefaultAsync(m => m.Id == id);
             if (accounttype == null)
             {
                 return NotFound();

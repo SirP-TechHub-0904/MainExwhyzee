@@ -13,8 +13,8 @@ namespace MainExwhyzee.Domain.Data
         {
         }
 
-        public DbSet<AccountType> AccountTypes { get; set; }
-        public DbSet<SubAccount> SubAccounts { get; set; }
+        public DbSet<WDAccount> WDAccounts { get; set; }
+        public DbSet<WDSubAccount> SubAccounts { get; set; }
         public DbSet<Agsmis> Agsmiss { get; set; }
        
     }

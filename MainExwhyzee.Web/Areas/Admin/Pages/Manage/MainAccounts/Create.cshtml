@@ -69,13 +69,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="AccountType.AccontStatus" class="control-label"></label>
-                <select asp-for="AccountType.AccontStatus" class="form-control"></select>
-                <span asp-validation-for="AccountType.AccontStatus" class="text-danger"></span>
+                        @Html.DropDownListFor(model => model.AccountType.AccontStatus, new SelectList(Enum.GetValues(typeof(MainExwhyzee.Domain.Models.Enum.AccontStatus))), new { @class = "form-control" })
+                        <span asp-validation-for="AccountType.AccontStatus" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="AccountType.TypeOfAccount" class="control-label"></label>
-                <select asp-for="AccountType.TypeOfAccount" class="form-control"></select>
-                <span asp-validation-for="AccountType.TypeOfAccount" class="text-danger"></span>
+                        @Html.DropDownListFor(model => model.AccountType.TypeOfAccount, new SelectList(Enum.GetValues(typeof(MainExwhyzee.Domain.Models.Enum.TypeOfAccount))), new { @class = "form-control" })
+                        <span asp-validation-for="AccountType.TypeOfAccount" class="text-danger"></span>
             </div>
                     <div class="form-group">
                         <input type="submit" value="Submit" class="btn btn-primary" />

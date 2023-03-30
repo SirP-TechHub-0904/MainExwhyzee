@@ -19,7 +19,7 @@ namespace MainExwhyzee.Web.Areas.Admin.Pages.Manage.Sub
             _context = context;
         }
 
-      public SubAccount SubAccount { get; set; }
+      public WDSubAccount SubAccount { get; set; }
 
         public async Task<IActionResult> OnGetAsync(long? id)
         {

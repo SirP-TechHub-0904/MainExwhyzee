@@ -4,6 +4,7 @@ using MainExwhyzee.Domain.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MainExwhyzee.Web.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230330083221_jopf")]
+    partial class jopf
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -243,7 +245,7 @@ namespace MainExwhyzee.Web.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WDAccounts");
+                    b.ToTable("AccountTypes");
                 });
 
             modelBuilder.Entity("MainExwhyzee.Domain.Models.WDSubAccount", b =>
@@ -256,6 +258,9 @@ namespace MainExwhyzee.Web.Data.Migrations
 
                     b.Property<int>("AccontStatus")
                         .HasColumnType("int");
+
+                    b.Property<long?>("AccountTypeId")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Company")
                         .IsRequired()
@@ -302,7 +307,7 @@ namespace MainExwhyzee.Web.Data.Migrations
                     b.Property<int>("TypeOfAccount")
                         .HasColumnType("int");
 
-                    b.Property<long?>("WDAccountId")
+                    b.Property<long>("WDAccountId")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
@@ -449,7 +454,9 @@ namespace MainExwhyzee.Web.Data.Migrations
                 {
                     b.HasOne("MainExwhyzee.Domain.Models.WDAccount", "WDAccount")
                         .WithMany("WDSubAccount")
-                        .HasForeignKey("WDAccountId");
+                        .HasForeignKey("WDAccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("WDAccount");
                 });

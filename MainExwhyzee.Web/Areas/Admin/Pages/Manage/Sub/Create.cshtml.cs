@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MainExwhyzee.Domain.Data;
 using MainExwhyzee.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MainExwhyzee.Web.Areas.Admin.Pages.Manage.Sub
 {
@@ -21,21 +22,30 @@ namespace MainExwhyzee.Web.Areas.Admin.Pages.Manage.Sub
 
         public IActionResult OnGet()
         {
-        ViewData["AccountTypeId"] = new SelectList(_context.AccountTypes, "Id", "Company");
+        ViewData["WDAccountId"] = new SelectList(_context.WDAccounts, "Id", "Name");
             return Page();
         }
 
         [BindProperty]
-        public SubAccount SubAccount { get; set; }
+        public WDSubAccount SubAccount { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
+            //if (!ModelState.IsValid)
+            //  {
+            //      return Page();
+            //  }
+            var check = await _context.SubAccounts.FirstOrDefaultAsync(x => x.MainUrl.ToUpper() == SubAccount.MainUrl);
+            if(check != null)
             {
+                ViewData["WDAccountId"] = new SelectList(_context.WDAccounts, "Id", "Name");
+                TempData["error"] = "Mail Url Already Existing";
                 return Page();
             }
+            SubAccount.Date = DateTime.UtcNow;
+            SubAccount.DateCreated = DateTime.UtcNow;
 
             _context.SubAccounts.Add(SubAccount);
             await _context.SaveChangesAsync();

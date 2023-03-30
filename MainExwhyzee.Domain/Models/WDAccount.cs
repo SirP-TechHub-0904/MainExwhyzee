@@ -2,7 +2,7 @@
 
 namespace MainExwhyzee.Domain.Models
 {
-    public class AccountType
+    public class WDAccount
     {
         public long Id { get; set; }
         public string Name { get; set; }
@@ -22,6 +22,6 @@ namespace MainExwhyzee.Domain.Models
         public AccontStatus AccontStatus { get; set; }
         public TypeOfAccount TypeOfAccount { get; set; }
 
-        public ICollection<SubAccount> SubAccounts { get; set; }
+        public ICollection<WDSubAccount> WDSubAccount { get; set; }
     }
 }

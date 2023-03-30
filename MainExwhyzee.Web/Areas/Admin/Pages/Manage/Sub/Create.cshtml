@@ -9,7 +9,7 @@
     <div class="card-header">
         <h3 class="card-title">ADD A NEW SUB ACCOUNT </h3>
 
-
+        <h4>@TempData["error"]</h4>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -27,6 +27,18 @@
                 <input asp-for="SubAccount.Company" class="form-control" />
                 <span asp-validation-for="SubAccount.Company" class="text-danger"></span>
             </div>
+
+                    <div class="form-group">
+                        <label asp-for="SubAccount.MainUrl" class="control-label"></label>
+                        <input asp-for="SubAccount.MainUrl" class="form-control" />
+                        <span asp-validation-for="SubAccount.MainUrl" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SubAccount.OtherUrl" class="control-label"></label>
+                        <input asp-for="SubAccount.OtherUrl" class="form-control" />
+                        <span asp-validation-for="SubAccount.OtherUrl" class="text-danger"></span>
+                    </div>
+
             <div class="form-group">
                 <label asp-for="SubAccount.Email" class="control-label"></label>
                 <input asp-for="SubAccount.Email" class="form-control" />
@@ -37,11 +49,7 @@
                 <input asp-for="SubAccount.Cost" class="form-control" />
                 <span asp-validation-for="SubAccount.Cost" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="SubAccount.DateCreated" class="control-label"></label>
-                <input asp-for="SubAccount.DateCreated" class="form-control" />
-                <span asp-validation-for="SubAccount.DateCreated" class="text-danger"></span>
-            </div>
+         
             <div class="form-group">
                 <label asp-for="SubAccount.DateExpiring" class="control-label"></label>
                 <input asp-for="SubAccount.DateExpiring" class="form-control" />
@@ -52,11 +60,7 @@
                 <input asp-for="SubAccount.DateRenewed" class="form-control" />
                 <span asp-validation-for="SubAccount.DateRenewed" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="SubAccount.Date" class="control-label"></label>
-                <input asp-for="SubAccount.Date" class="form-control" />
-                <span asp-validation-for="SubAccount.Date" class="text-danger"></span>
-            </div>
+            
             <div class="form-group">
                 <label asp-for="SubAccount.Description" class="control-label"></label>
                 <input asp-for="SubAccount.Description" class="form-control" />
@@ -67,19 +71,19 @@
                 <input asp-for="SubAccount.Interval" class="form-control" />
                 <span asp-validation-for="SubAccount.Interval" class="text-danger"></span>
             </div>
+                    <div class="form-group">
+                        <label asp-for="SubAccount.AccontStatus" class="control-label"></label>
+                        @Html.DropDownListFor(model => model.SubAccount.AccontStatus, new SelectList(Enum.GetValues(typeof(MainExwhyzee.Domain.Models.Enum.AccontStatus))), new { @class = "form-control" })
+                        <span asp-validation-for="SubAccount.AccontStatus" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SubAccount.TypeOfAccount" class="control-label"></label>
+                        @Html.DropDownListFor(model => model.SubAccount.TypeOfAccount, new SelectList(Enum.GetValues(typeof(MainExwhyzee.Domain.Models.Enum.TypeOfAccount))), new { @class = "form-control" })
+                        <span asp-validation-for="SubAccount.TypeOfAccount" class="text-danger"></span>
+                    </div>
             <div class="form-group">
-                <label asp-for="SubAccount.AccontStatus" class="control-label"></label>
-                <select asp-for="SubAccount.AccontStatus" class="form-control"></select>
-                <span asp-validation-for="SubAccount.AccontStatus" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SubAccount.TypeOfAccount" class="control-label"></label>
-                <select asp-for="SubAccount.TypeOfAccount" class="form-control"></select>
-                <span asp-validation-for="SubAccount.TypeOfAccount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SubAccount.AccountTypeId" class="control-label"></label>
-                <select asp-for="SubAccount.AccountTypeId" class ="form-control" asp-items="ViewBag.AccountTypeId"></select>
+                <label asp-for="SubAccount.WDAccountId" class="control-label"></label>
+                        <select asp-for="SubAccount.WDAccountId" class="form-control" asp-items="ViewBag.WDAccountId"></select>
             </div>
                     <div class="form-group">
                         <input type="submit" value="Submit" class="btn btn-primary" />

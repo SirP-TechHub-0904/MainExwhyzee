@@ -21,7 +21,7 @@ namespace MainExwhyzee.Web.Areas.Admin.Pages.Manage.Sub
         }
 
         [BindProperty]
-        public SubAccount SubAccount { get; set; } = default!;
+        public WDSubAccount SubAccount { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(long? id)
         {
@@ -36,7 +36,7 @@ namespace MainExwhyzee.Web.Areas.Admin.Pages.Manage.Sub
                 return NotFound();
             }
             SubAccount = subaccount;
-           ViewData["AccountTypeId"] = new SelectList(_context.AccountTypes, "Id", "Company");
+           ViewData["AccountTypeId"] = new SelectList(_context.WDAccounts, "Id", "Name");
             return Page();
         }
 
@@ -44,11 +44,17 @@ namespace MainExwhyzee.Web.Areas.Admin.Pages.Manage.Sub
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            //if (!ModelState.IsValid)
+            //{
+            //    return Page();
+            //}
+            var check = await _context.SubAccounts.FirstOrDefaultAsync(x => x.MainUrl.ToUpper() == SubAccount.MainUrl);
+            if (check != null)
             {
+                ViewData["WDAccountId"] = new SelectList(_context.WDAccounts, "Id", "Name");
+                TempData["error"] = "Mail Url Already Existing";
                 return Page();
             }
-
             _context.Attach(SubAccount).State = EntityState.Modified;
 
             try

@@ -20,7 +20,7 @@ namespace MainExwhyzee.Web.Areas.Admin.Pages.Manage.Sub
         }
 
         [BindProperty]
-      public SubAccount SubAccount { get; set; }
+      public WDSubAccount SubAccount { get; set; }
 
         public async Task<IActionResult> OnGetAsync(long? id)
         {

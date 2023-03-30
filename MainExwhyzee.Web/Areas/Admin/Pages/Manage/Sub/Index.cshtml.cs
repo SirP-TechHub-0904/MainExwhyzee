@@ -19,14 +19,14 @@ namespace MainExwhyzee.Web.Areas.Admin.Pages.Manage.Sub
             _context = context;
         }
 
-        public IList<SubAccount> SubAccount { get;set; } = default!;
+        public IList<WDSubAccount> SubAccount { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
             if (_context.SubAccounts != null)
             {
                 SubAccount = await _context.SubAccounts
-                .Include(s => s.AccountType).ToListAsync();
+                .Include(s => s.WDAccount).ToListAsync();
             }
         }
     }
