@@ -32,10 +32,7 @@ namespace MainExwhyzee.Web.Areas.Admin.Pages.Manage.MainAccounts
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          //if (!ModelState.IsValid)
-          //  {
-          //      return Page();
-          //  }
+          
 
             _context.WDAccounts.Add(AccountType);
             await _context.SaveChangesAsync();

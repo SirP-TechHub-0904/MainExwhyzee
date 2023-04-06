@@ -38,8 +38,9 @@ namespace MainExwhyzee.Web.Areas.Admin.Pages.Manage.Sub
             //      return Page();
             //  }
             var check = await _context.SubAccounts.FirstOrDefaultAsync(x => x.MainUrl.ToUpper() == SubAccount.MainUrl);
-            if(check != null)
+            if(check.TypeOfAccount == SubAccount.TypeOfAccount)
             {
+
                 ViewData["WDAccountId"] = new SelectList(_context.WDAccounts, "Id", "Name");
                 TempData["error"] = "Mail Url Already Existing";
                 return Page();
